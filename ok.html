@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата прошла успешно | YumekatTunnel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            }
+            50% {
+                box-shadow: 0 10px 30px rgba(76, 175, 80, 0.6);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            }
+        }
+
+        .checkmark {
+            width: 35px;
+            height: 35px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            animation: checkmark 0.6s ease-in-out 0.3s both;
+        }
+
+        @keyframes checkmark {
+            0% {
+                stroke-dashoffset: 50px;
+                stroke-dasharray: 50px;
+            }
+            100% {
+                stroke-dashoffset: 0px;
+                stroke-dasharray: 50px;
+            }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bot-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #0088cc, #0077b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+            animation: fadeIn 1.2s ease-out 0.6s both;
+        }
+
+        .bot-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 136, 204, 0.4);
+            background: linear-gradient(135deg, #0099dd, #0088cc);
+        }
+
+        .bot-link:active {
+            transform: translateY(0);
+        }
+
+        .telegram-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: currentColor;
+        }
+
+        .brand-name {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .circle-1 {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 40px;
+            height: 40px;
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 2s;
+        }
+
+        .circle-3 {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            right: 10px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .bot-link {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-elements">
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+            <div class="floating-circle circle-3"></div>
+        </div>
+        
+        <div class="success-icon">
+            <svg class="checkmark" viewBox="0 0 52 52">
+                <path d="M14 27l8 8 16-16"/>
+            </svg>
+        </div>
+        
+        <h1>Оплата прошла успешно! 🎉</h1>
+        <p class="subtitle">
+            Ваша подписка на <span class="brand-name">YumekatTunnel</span> активирована.<br>
+            Теперь вы можете пользоваться всеми возможностями сервиса.
+        </p>
+        
+        <a href="https://t.me/yumekatunnel_bot" class="bot-link">
+            <svg class="telegram-icon" viewBox="0 0 24 24">
+                <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+            </svg>
+            Вернуться в бота
+        </a>
+    </div>
+</body>
+</html>
