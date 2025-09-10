@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по установке VLESS на iOS</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <title data-lang="ru">Инструкция по установке VLESS на iOS</title>
+    <title data-lang="en">Guide to Setting Up VLESS on iOS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -21,7 +22,7 @@
             padding: 40px 20px;
         }
         h1, h2, h3 {
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 20px;
         }
         h1 {
@@ -61,6 +62,45 @@
             text-align: center;
             margin-top: 40px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        .modal-content button:hover {
+            background-color: #e8eaed;
+        }
+        [data-lang="en"] {
+            display: none;
+        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px;
@@ -74,34 +114,57 @@
             .container {
                 padding: 20px;
             }
+            .modal-content {
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="modal" id="languageModal">
+        <div class="modal-content">
+            <h2 data-lang="ru">Выберите язык</h2>
+            <h2 data-lang="en">Select Language</h2>
+            <button onclick="setLanguage('ru')">Русский</button>
+            <button onclick="setLanguage('en')">English</button>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>Полная инструкция по установке v2RayTun и настройке VLESS на iOS</h1>
+        <h1 data-lang="ru">Полная инструкция по установке v2RayTun и настройке VLESS на iOS</h1>
+        <h1 data-lang="en">Complete Guide to Installing v2RayTun and Setting Up VLESS on iOS</h1>
 
         <div class="section">
             <div class="warning">
-                <h3>Важные предупреждения</h3>
+                <h3 data-lang="ru">Важные предупреждения</h3>
+                <h3 data-lang="en">Important Notices</h3>
                 <ul>
-                    <li>Убедитесь, что у вас есть действующая VLESS-ссылка (в формате vless://...).</li>
-                    <li>Скачивайте приложения только из надёжных источников (App Store, TestFlight, официальные сайты).</li>
-                    <li>Использование должно соответствовать законодательству вашей страны.</li>
-                    <li>Инструкция актуальна для iOS 12.0 и выше.</li>
+                    <li data-lang="ru">Убедитесь, что у вас есть действующая VLESS-ссылка (в формате vless://...).</li>
+                    <li data-lang="en">Ensure you have a valid VLESS link (in the format vless://...).</li>
+                    <li data-lang="ru">Скачивайте приложения только из надёжных источников (App Store, TestFlight, официальные сайты).</li>
+                    <li data-lang="en">Download applications only from trusted sources (App Store, TestFlight, official websites).</li>
+                    <li data-lang="ru">Использование должно соответствовать законодательству вашей страны.</li>
+                    <li data-lang="en">Usage must comply with the laws of your country.</li>
+                    <li data-lang="ru">Инструкция актуальна для iOS 12.0 и выше.</li>
+                    <li data-lang="en">This guide is applicable for iOS 12.0 and above.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2>Часть 1: Установка v2RayTun</h2>
-            
-            <h3>Шаг 1: Скачайте и установите v2RayTun</h3>
+            <h2 data-lang="ru">Часть 1: Установка v2RayTun</h2>
+            <h2 data-lang="en">Part 1: Installing v2RayTun</h2>
+
+            <h3 data-lang="ru">Шаг 1: Скачайте и установите v2RayTun</h3>
+            <h3 data-lang="en">Step 1: Download and Install v2RayTun</h3>
             <ol>
-                <li>Откройте App Store на вашем iPhone или iPad.</li>
-                <li>Введите в поиске <b>v2RayTun</b>.</li>
-                <li>Найдите приложение <b>v2RayTun - Proxy Client</b> и нажмите <b>Установить</b>.</li>
-                <li>Если приложение недоступно:
+                <li data-lang="ru">Откройте App Store на вашем iPhone или iPad.</li>
+                <li data-lang="en">Open the App Store on your iPhone or iPad.</li>
+                <li data-lang="ru">Введите в поиске <b>v2RayTun</b>.</li>
+                <li data-lang="en">Search for <b>v2RayTun</b>.</li>
+                <li data-lang="ru">Найдите приложение <b>v2RayTun - Proxy Client</b> и нажмите <b>Установить</b>.</li>
+                <li data-lang="en">Find the <b>v2RayTun - Proxy Client</b> app and tap <b>Install</b>.</li>
+                <li data-lang="ru">Если приложение недоступно:
                     <ul>
                         <li>Перейдите в <b>Настройки > Apple ID > Медиа и покупки > Просмотреть</b>.</li>
                         <li>Смените регион на США или Гонконг.</li>
@@ -109,96 +172,176 @@
                         <li>Повторите поиск и установку.</li>
                     </ul>
                 </li>
-                <li>Альтернатива через TestFlight:
+                <li data-lang="en">If the app is unavailable:
+                    <ul>
+                        <li>Go to <b>Settings > Apple ID > Media & Purchases > View Account</b>.</li>
+                        <li>Change the region to the USA or Hong Kong.</li>
+                        <li>Accept the terms and add a payment method (if required).</li>
+                        <li>Repeat the search and installation.</li>
+                    </ul>
+                </li>
+                <li data-lang="ru">Альтернатива через TestFlight:
                     <ul>
                         <li>Установите <a href="https://www.apple.com/testflight">TestFlight</a> из App Store.</li>
                         <li>Найдите бета-версию v2RayTun через <a href="https://v2raytun.com">v2raytun.com</a> или <a href="https://t.me/v2raytun">Telegram</a>.</li>
                         <li>Следуйте ссылке и установите.</li>
                     </ul>
                 </li>
+                <li data-lang="en">Alternative via TestFlight:
+                    <ul>
+                        <li>Install <a href="https://www.apple.com/testflight">TestFlight</a> from the App Store.</li>
+                        <li>Find the beta version of v2RayTun via <a href="https://v2raytun.com">v2raytun.com</a> or <a href="https://t.me/v2raytun">Telegram</a>.</li>
+                        <li>Follow the link and install.</li>
+                    </ul>
+                </li>
             </ol>
 
-            <h3>Шаг 2: Проверка установки</h3>
-            <p>Откройте v2RayTun и подтвердите разрешения для работы с сетью.</p>
+            <h3 data-lang="ru">Шаг 2: Проверка установки</h3>
+            <h3 data-lang="en">Step 2: Verifying Installation</h3>
+            <p data-lang="ru">Откройте v2RayTun и подтвердите разрешения для работы с сетью.</p>
+            <p data-lang="en">Open v2RayTun and confirm permissions for network access.</p>
         </div>
 
         <div class="section">
-            <h2>Часть 2: Импорт VLESS-ссылки</h2>
+            <h2 data-lang="ru">Часть 2: Импорт VLESS-ссылки</h2>
+            <h2 data-lang="en">Part 2: Importing the VLESS Link</h2>
             <ol>
-                <li>Запустите v2RayTun.</li>
-                <li>Найдите раздел <b>Add Config</b> или кнопку <b>+</b>.</li>
-                <li>Выберите <b>Import from Clipboard</b> или <b>Scan QR Code</b>.</li>
-                <li>Скопируйте VLESS-ссылку в буфер обмена.</li>
-                <li>Вставьте ссылку и нажмите <b>OK</b> или <b>Import</b>.</li>
-                <li>Если произошла ошибка, проверьте формат ссылки (vless://) или используйте QR-код.</li>
-            </ol>
-        </div>
-
-        <div class="section">
-            <h2>Часть 3: Активация подключения</h2>
-            <ol>
-                <li>Выберите VLESS-сервер в списке конфигураций.</li>
-                <li>Нажмите <b>Connect</b>.</li>
-                <li>Подтвердите разрешение на добавление конфигурации сети.</li>
-                <li>Дождитесь статуса <b>Connected</b> (5–30 секунд).</li>
-                <li>Проверьте IP на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a> или <a href="https://iplocation.net">iplocation.net</a>.</li>
-            </ol>
-        </div>
-
-        <div class="section">
-            <h2>Часть 4: Альтернативные приложения</h2>
-            
-            <h3>Shadowrocket</h3>
-            <p><b>Описание:</b> Популярный клиент для VLESS и других протоколов.</p>
-            <ol>
-                <li>Установите <a href="https://apps.apple.com/us/app/shadowrocket/id932747118">Shadowrocket</a> ($2.99).</li>
-                <li>Нажмите <b>+</b> и выберите <b>Add Server</b>.</li>
-                <li>Вставьте VLESS-ссылку или отсканируйте QR-код.</li>
-                <li>Включите <b>Global Proxy</b> и подтвердите разрешение.</li>
-            </ol>
-
-            <h3>Streisand</h3>
-            <p><b>Описание:</b> Простое приложение с поддержкой VLESS.</p>
-            <ol>
-                <li>Установите <a href="https://github.com/johndoe/streisand-ios">Streisand</a> через App Store или TestFlight.</li>
-                <li>Перейдите в <b>Settings > Add Profile</b>.</li>
-                <li>Вставьте VLESS-ссылку или отсканируйте QR-код.</li>
-                <li>Нажмите <b>Connect</b>.</li>
-            </ol>
-
-            <h3>Quantumult X</h3>
-            <p><b>Описание:</b> Мощный клиент для VLESS и других протоколов.</p>
-            <ol>
-                <li>Установите <a href="https://apps.apple.com/us/app/quantumult-x/id1443988620">Quantumult X</a> ($7.99).</li>
-                <li>В разделе <b>Profiles</b> выберите <b>Import</b>.</li>
-                <li>Вставьте VLESS-ссылку и сохраните.</li>
-                <li>Нажмите <b>Start</b>.</li>
+                <li data-lang="ru">Запустите v2RayTun.</li>
+                <li data-lang="en">Launch v2RayTun.</li>
+                <li data-lang="ru">Найдите раздел <b>Add Config</b> или кнопку <b>+</b>.</li>
+                <li data-lang="en">Find the <b>Add Config</b> section or the <b>+</b> button.</li>
+                <li data-lang="ru">Выберите <b>Import from Clipboard</b> или <b>Scan QR Code</b>.</li>
+                <li data-lang="en">Select <b>Import from Clipboard</b> or <b>Scan QR Code</b>.</li>
+                <li data-lang="ru">Скопируйте VLESS-ссылку в буфер обмена.</li>
+                <li data-lang="en">Copy the VLESS link to the clipboard.</li>
+                <li data-lang="ru">Вставьте ссылку и нажмите <b>OK</b> или <b>Import</b>.</li>
+                <li data-lang="en">Paste the link and tap <b>OK</b> or <b>Import</b>.</li>
+                <li data-lang="ru">Если произошла ошибка, проверьте формат ссылки (vless://) или используйте QR-код.</li>
+                <li data-lang="en">If an error occurs, verify the link format (vless://) or use a QR code.</li>
             </ol>
         </div>
 
         <div class="section">
-            <h2>Часть 5: Дополнительные советы и устранение неполадок</h2>
+            <h2 data-lang="ru">Часть 3: Активация подключения</h2>
+            <h2 data-lang="en">Part 3: Activating the Connection</h2>
+            <ol>
+                <li data-lang="ru">Выберите VLESS-сервер в списке конфигураций.</li>
+                <li data-lang="en">Select the VLESS server from the list of configurations.</li>
+                <li data-lang="ru">Нажмите <b>Connect</b>.</li>
+                <li data-lang="en">Tap <b>Connect</b>.</li>
+                <li data-lang="ru">Подтвердите разрешение на добавление конфигурации сети.</li>
+                <li data-lang="en">Confirm permission to add the network configuration.</li>
+                <li data-lang="ru">Дождитесь статуса <b>Connected</b> (5–30 секунд).</li>
+                <li data-lang="en">Wait for the <b>Connected</b> status (5–30 seconds).</li>
+                <li data-lang="ru">Проверьте IP на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a> или <a href="https://iplocation.net">iplocation.net</a>.</li>
+                <li data-lang="en">Check your IP on <a href="https://whatismyipaddress.com">whatismyipaddress.com</a> or <a href="https://iplocation.net">iplocation.net</a>.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="ru">Часть 4: Альтернативные приложения</h2>
+            <h2 data-lang="en">Part 4: Alternative Applications</h2>
+
+            <h3 data-lang="ru">Shadowrocket</h3>
+            <h3 data-lang="en">Shadowrocket</h3>
+            <p data-lang="ru"><b>Описание:</b> Популярный клиент для VLESS и других протоколов.</p>
+            <p data-lang="en"><b>Description:</b> A popular client for VLESS and other protocols.</p>
+            <ol>
+                <li data-lang="ru">Установите <a href="https://apps.apple.com/us/app/shadowrocket/id932747118">Shadowrocket</a> ($2.99).</li>
+                <li data-lang="en">Install <a href="https://apps.apple.com/us/app/shadowrocket/id932747118">Shadowrocket</a> ($2.99).</li>
+                <li data-lang="ru">Нажмите <b>+</b> и выберите <b>Add Server</b>.</li>
+                <li data-lang="en">Tap <b>+</b> and select <b>Add Server</b>.</li>
+                <li data-lang="ru">Вставьте VLESS-ссылку или отсканируйте QR-код.</li>
+                <li data-lang="en">Paste the VLESS link or scan the QR code.</li>
+                <li data-lang="ru">Включите <b>Global Proxy</b> и подтвердите разрешение.</li>
+                <li data-lang="en">Enable <b>Global Proxy</b> and confirm permission.</li>
+            </ol>
+
+            <h3 data-lang="ru">Streisand</h3>
+            <h3 data-lang="en">Streisand</h3>
+            <p data-lang="ru"><b>Описание:</b> Простое приложение с поддержкой VLESS.</p>
+            <p data-lang="en"><b>Description:</b> A simple app with VLESS support.</p>
+            <ol>
+                <li data-lang="ru">Установите <a href="https://github.com/johndoe/streisand-ios">Streisand</a> через App Store или TestFlight.</li>
+                <li data-lang="en">Install <a href="https://github.com/johndoe/streisand-ios">Streisand</a> via the App Store or TestFlight.</li>
+                <li data-lang="ru">Перейдите в <b>Settings > Add Profile</b>.</li>
+                <li data-lang="en">Go to <b>Settings > Add Profile</b>.</li>
+                <li data-lang="ru">Вставьте VLESS-ссылку или отсканируйте QR-код.</li>
+                <li data-lang="en">Paste the VLESS link or scan the QR code.</li>
+                <li data-lang="ru">Нажмите <b>Connect</b>.</li>
+                <li data-lang="en">Tap <b>Connect</b>.</li>
+            </ol>
+
+            <h3 data-lang="ru">Quantumult X</h3>
+            <h3 data-lang="en">Quantumult X</h3>
+            <p data-lang="ru"><b>Описание:</b> Мощный клиент для VLESS и других протоколов.</p>
+            <p data-lang="en"><b>Description:</b> A powerful client for VLESS and other protocols.</p>
+            <ol>
+                <li data-lang="ru">Установите <a href="https://apps.apple.com/us/app/quantumult-x/id1443988620">Quantumult X</a> ($7.99).</li>
+                <li data-lang="en">Install <a href="https://apps.apple.com/us/app/quantumult-x/id1443988620">Quantumult X</a> ($7.99).</li>
+                <li data-lang="ru">В разделе <b>Profiles</b> выберите <b>Import</b>.</li>
+                <li data-lang="en">In the <b>Profiles</b> section, select <b>Import</b>.</li>
+                <li data-lang="ru">Вставьте VLESS-ссылку и сохраните.</li>
+                <li data-lang="en">Paste the VLESS link and save.</li>
+                <li data-lang="ru">Нажмите <b>Start</b>.</li>
+                <li data-lang="en">Tap <b>Start</b>.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2 data-lang="ru">Часть 5: Дополнительные советы и устранение неполадок</h2>
+            <h2 data-lang="en">Part 5: Additional Tips and Troubleshooting</h2>
             <ul>
-                <li><b>Ошибка импорта:</b> Проверьте актуальность ссылки или введите параметры вручную.</li>
-                <li><b>Отключение интернета:</b> Настройте маршрутизацию или выберите "Proxy only selected apps".</li>
-                <li><b>Сбой приложения:</b> Переустановите через App Store или TestFlight.</li>
-                <li><b>Безопасность:</b> Не делитесь VLESS-ссылкой и используйте только официальные источники.</li>
+                <li data-lang="ru"><b>Ошибка импорта:</b> Проверьте актуальность ссылки или введите параметры вручную.</li>
+                <li data-lang="en"><b>Import Error:</b> Verify the link's validity or enter parameters manually.</li>
+                <li data-lang="ru"><b>Отключение интернета:</b> Настройте маршрутизацию или выберите "Proxy only selected apps".</li>
+                <li data-lang="en"><b>Internet Disconnection:</b> Configure routing or select "Proxy only selected apps".</li>
+                <li data-lang="ru"><b>Сбой приложения:</b> Переустановите через App Store или TestFlight.</li>
+                <li data-lang="en"><b>App Crash:</b> Reinstall via the App Store or TestFlight.</li>
+                <li data-lang="ru"><b>Безопасность:</b> Не делитесь VLESS-ссылкой и используйте только официальные источники.</li>
+                <li data-lang="en"><b>Security:</b> Do not share the VLESS link and use only official sources.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>Часть 6: Проверка подключения</h2>
+            <h2 data-lang="ru">Часть 6: Проверка подключения</h2>
+            <h2 data-lang="en">Part 6: Verifying the Connection</h2>
             <ol>
-                <li>Проверьте IP на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
-                <li>Попробуйте открыть сайт, требующий подключения.</li>
-                <li>Свяжитесь с провайдером при нестабильном соединении.</li>
+                <li data-lang="ru">Проверьте IP на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
+                <li data-lang="en">Check your IP on <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
+                <li data-lang="ru">Попробуйте открыть сайт, требующий подключения.</li>
+                <li data-lang="en">Try accessing a website that requires the connection.</li>
+                <li data-lang="ru">Свяжитесь с провайдером при нестабильном соединении.</li>
+                <li data-lang="en">Contact your provider if the connection is unstable.</li>
             </ol>
         </div>
 
         <div class="footer">
-            <p>Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>
-            С уважением, команда Yumeka Tunnel</p>
+            <p data-lang="ru">Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>С уважением, команда Yumeka Tunnel</p>
+            <p data-lang="en">If you have any questions, contact <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> or through the bot using the "📞 SUPPORT" button.<br>Best regards, Yumeka Tunnel Team</p>
         </div>
     </div>
+
+    <script>
+        // Show language selection modal on page load
+        window.onload = function() {
+            document.getElementById('languageModal').style.display = 'flex';
+        };
+
+        function setLanguage(lang) {
+            // Hide all elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Show elements for selected language
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.style.display = 'block';
+            });
+            // Update document language
+            document.documentElement.lang = lang;
+            // Hide modal
+            document.getElementById('languageModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
