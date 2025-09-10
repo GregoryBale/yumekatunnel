@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по установке VLESS на Android</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    <title data-lang="ru">Инструкция по установке VLESS на Android</title>
+    <title data-lang="en">Guide to Setting Up VLESS on Android</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -21,7 +22,7 @@
             padding: 40px 20px;
         }
         h1, h2, h3 {
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 20px;
         }
         h1 {
@@ -61,6 +62,45 @@
             text-align: center;
             margin-top: 40px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        .modal-content button:hover {
+            background-color: #e8eaed;
+        }
+        [data-lang="en"] {
+            display: none;
+        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 24px;
@@ -74,114 +114,201 @@
             .container {
                 padding: 20px;
             }
+            .modal-content {
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="modal" id="languageModal">
+        <div class="modal-content">
+            <h2 data-lang="ru">Выберите язык</h2>
+            <h2 data-lang="en">Select Language</h2>
+            <button onclick="setLanguage('ru')">Русский</button>
+            <button onclick="setLanguage('en')">English</button>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>Полная инструкция по установке VLESS-ува и включению соединения на Android</h1>
-        
+        <h1 data-lang="ru">Полная инструкция по установке VLESS и включению соединения на Android</h1>
+        <h1 data-lang="en">Complete Guide to Installing VLESS and Enabling Connection on Android</h1>
+
         <div class="section">
-            <p>Добрый день! Эта инструкция поможет вам установить и настроить соединение с использованием VLESS-ссылки на Android с помощью приложения v2RayTun или альтернативных клиентов, таких как v2rayNG, Nekobox и SagerNet. VLESS — это современный протокол, обеспечивающий высокую безопасность и скорость при использовании с клиентами на базе V2Ray или Xray.</p>
-            
+            <p data-lang="ru">Добрый день! Эта инструкция поможет вам установить и настроить соединение с использованием VLESS-ссылки на Android с помощью приложения v2RayTun или альтернативных клиентов, таких как v2rayNG, Nekobox и SagerNet. VLESS — это современный протокол, обеспечивающий высокую безопасность и скорость при использовании с клиентами на базе V2Ray или Xray.</p>
+            <p data-lang="en">Hello! This guide will help you install and configure a connection using a VLESS link on Android with the v2RayTun app or alternative clients such as v2rayNG, Nekobox, and SagerNet. VLESS is a modern protocol that ensures high security and speed when used with V2Ray or Xray-based clients.</p>
+
             <div class="warning">
-                <h3>Важные предупреждения</h3>
+                <h3 data-lang="ru">Важные предупреждения</h3>
+                <h3 data-lang="en">Important Notices</h3>
                 <ul>
-                    <li>Убедитесь, что у вас есть действующая VLESS-ссылка (в формате vless://...).</li>
-                    <li>Скачивайте приложения только из надёжных источников (Google Play Store, официальные сайты, GitHub).</li>
-                    <li>Инструкция актуальна для Android 7.0 и выше.</li>
-                    <li>Некоторые пользователи сообщают о проблемах с v2RayTun после обновлений. Мы рассмотрим альтернативы.</li>
+                    <li data-lang="ru">Убедитесь, что у вас есть действующая VLESS-ссылка (в формате vless://...).</li>
+                    <li data-lang="en">Ensure you have a valid VLESS link (in the format vless://...).</li>
+                    <li data-lang="ru">Скачивайте приложения только из надёжных источников (Google Play Store, официальные сайты, GitHub).</li>
+                    <li data-lang="en">Download applications only from trusted sources (Google Play Store, official websites, GitHub).</li>
+                    <li data-lang="ru">Инструкция актуальна для Android 7.0 и выше.</li>
+                    <li data-lang="en">This guide is applicable for Android 7.0 and above.</li>
+                    <li data-lang="ru">Некоторые пользователи сообщают о проблемах с v2RayTun после обновлений. Мы рассмотрим альтернативы.</li>
+                    <li data-lang="en">Some users report issues with v2RayTun after updates. We will cover alternatives.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2>Часть 1: Установка и настройка v2RayTun</h2>
-            
-            <h3>Шаг 1: Скачайте и установите v2RayTun</h3>
+            <h2 data-lang="ru">Часть 1: Установка и настройка v2RayTun</h2>
+            <h2 data-lang="en">Part 1: Installing and Configuring v2RayTun</h2>
+
+            <h3 data-lang="ru">Шаг 1: Скачайте и установите v2RayTun</h3>
+            <h3 data-lang="en">Step 1: Download and Install v2RayTun</h3>
             <ol>
-                <li>Откройте Google Play Store на вашем Android-устройстве.</li>
-                <li>В поисковой строке введите <b>v2RayTun</b>.</li>
-                <li>Найдите приложение <b>v2RayTun - Proxy Client</b> и нажмите <b>Установить</b>.</li>
-                <li>Альтернативно: Скачайте APK-файл v2RayTun с <a href="https://apkpure.com/v2raytun/com.v2raytun.android">APKPure</a> или <a href="https://v2raytun.en.uptodown.com/android/download">Uptodown</a>. Включите установку из неизвестных источников в настройках.</li>
+                <li data-lang="ru">Откройте Google Play Store на вашем Android-устройстве.</li>
+                <li data-lang="en">Open the Google Play Store on your Android device.</li>
+                <li data-lang="ru">В поисковой строке введите <b>v2RayTun</b>.</li>
+                <li data-lang="en">Enter <b>v2RayTun</b> in the search bar.</li>
+                <li data-lang="ru">Найдите приложение <b>v2RayTun - Proxy Client</b> и нажмите <b>Установить</b>.</li>
+                <li data-lang="en">Find the <b>v2RayTun - Proxy Client</b> app and tap <b>Install</b>.</li>
+                <li data-lang="ru">Альтернативно: Скачайте APK-файл v2RayTun с <a href="https://apkpure.com/v2raytun/com.v2raytun.android">APKPure</a> или <a href="https://v2raytun.en.uptodown.com/android/download">Uptodown</a>. Включите установку из неизвестных источников в настройках.</li>
+                <li data-lang="en">Alternatively: Download the v2RayTun APK file from <a href="https://apkpure.com/v2raytun/com.v2raytun.android">APKPure</a> or <a href="https://v2raytun.en.uptodown.com/android/download">Uptodown</a>. Enable installation from unknown sources in settings.</li>
             </ol>
 
-            <h3>Шаг 2: Импортируйте VLESS-ссылку в v2RayTun</h3>
+            <h3 data-lang="ru">Шаг 2: Импортируйте VLESS-ссылку в v2RayTun</h3>
+            <h3 data-lang="en">Step 2: Import the VLESS Link into v2RayTun</h3>
             <ol>
-                <li>Запустите приложение v2RayTun.</li>
-                <li>Подтвердите разрешения на доступ к сети.</li>
-                <li>Нажмите <b>+</b> или <b>Add Config</b>.</li>
-                <li>Выберите <b>Import from Clipboard</b> и вставьте VLESS-ссылку.</li>
-                <li>Нажмите <b>OK</b> или <b>Import</b>.</li>
+                <li data-lang="ru">Запустите приложение v2RayTun.</li>
+                <li data-lang="en">Launch the v2RayTun app.</li>
+                <li data-lang="ru">Подтвердите разрешения на доступ к сети.</li>
+                <li data-lang="en">Confirm permissions for network access.</li>
+                <li data-lang="ru">Нажмите <b>+</b> или <b>Add Config</b>.</li>
+                <li data-lang="en">Tap <b>+</b> or <b>Add Config</b>.</li>
+                <li data-lang="ru">Выберите <b>Import from Clipboard</b> и вставьте VLESS-ссылку.</li>
+                <li data-lang="en">Select <b>Import from Clipboard</b> and paste the VLESS link.</li>
+                <li data-lang="ru">Нажмите <b>OK</b> или <b>Import</b>.</li>
+                <li data-lang="en">Tap <b>OK</b> or <b>Import</b>.</li>
             </ol>
 
-            <h3>Шаг 3: Подключитесь</h3>
+            <h3 data-lang="ru">Шаг 3: Подключитесь</h3>
+            <h3 data-lang="en">Step 3: Connect</h3>
             <ol>
-                <li>Выберите VLESS-сервер в списке конфигураций.</li>
-                <li>Нажмите <b>Connect</b>.</li>
-                <li>Подтвердите разрешение на создание соединения.</li>
-                <li>Проверьте IP-адрес на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
+                <li data-lang="ru">Выберите VLESS-сервер в списке конфигураций.</li>
+                <li data-lang="en">Select the VLESS server from the list of configurations.</li>
+                <li data-lang="ru">Нажмите <b>Connect</b>.</li>
+                <li data-lang="en">Tap <b>Connect</b>.</li>
+                <li data-lang="ru">Подтвердите разрешение на создание соединения.</li>
+                <li data-lang="en">Confirm permission to establish the connection.</li>
+                <li data-lang="ru">Проверьте IP-адрес на <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
+                <li data-lang="en">Check your IP address on <a href="https://whatismyipaddress.com">whatismyipaddress.com</a>.</li>
             </ol>
 
-            <h3>Шаг 4: Устранение неполадок с v2RayTun</h3>
+            <h3 data-lang="ru">Шаг 4: Устранение неполадок с v2RayTun</h3>
+            <h3 data-lang="en">Step 4: Troubleshooting v2RayTun</h3>
             <ul>
-                <li><b>Проблема:</b> Интернет не работает после обновления.<br>
+                <li data-lang="ru"><b>Проблема:</b> Интернет не работает после обновления.<br>
                     <b>Решение:</b> Проверьте настройки маршрутизации или перезагрузите устройство.</li>
-                <li><b>Проблема:</b> Сложности с импортом.<br>
+                <li data-lang="en"><b>Issue:</b> Internet stops working after an update.<br>
+                    <b>Solution:</b> Check routing settings or restart the device.</li>
+                <li data-lang="ru"><b>Проблема:</b> Сложности с импортом.<br>
                     <b>Решение:</b> Проверьте формат ссылки или введите параметры вручную.</li>
-                <li><b>Проблема:</b> Приложение падает.<br>
+                <li data-lang="en"><b>Issue:</b> Import difficulties.<br>
+                    <b>Solution:</b> Verify the link format or enter parameters manually.</li>
+                <li data-lang="ru"><b>Проблема:</b> Приложение падает.<br>
                     <b>Решение:</b> Установите старую версию с <a href="https://v2raytun.en.uptodown.com/android/download">Uptodown</a>.</li>
+                <li data-lang="en"><b>Issue:</b> App crashes.<br>
+                    <b>Solution:</b> Install an older version from <a href="https://v2raytun.en.uptodown.com/android/download">Uptodown</a>.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>Часть 2: Альтернативные приложения</h2>
-            
-            <h3>v2rayNG</h3>
+            <h2 data-lang="ru">Часть 2: Альтернативные приложения</h2>
+            <h2 data-lang="en">Part 2: Alternative Applications</h2>
+
+            <h3 data-lang="ru">v2rayNG</h3>
+            <h3 data-lang="en">v2rayNG</h3>
             <ol>
-                <li>Установите <a href="https://github.com/2dust/v2rayNG">v2rayNG</a> из Google Play или GitHub.</li>
-                <li>Импортируйте VLESS-ссылку через <b>Import from Clipboard</b>.</li>
-                <li>Подключитесь, нажав <b>Подключить</b>.</li>
+                <li data-lang="ru">Установите <a href="https://github.com/2dust/v2rayNG">v2rayNG</a> из Google Play или GitHub.</li>
+                <li data-lang="en">Install <a href="https://github.com/2dust/v2rayNG">v2rayNG</a> from Google Play or GitHub.</li>
+                <li data-lang="ru">Импортируйте VLESS-ссылку через <b>Import from Clipboard</b>.</li>
+                <li data-lang="en">Import the VLESS link via <b>Import from Clipboard</b>.</li>
+                <li data-lang="ru">Подключитесь, нажав <b>Подключить</b>.</li>
+                <li data-lang="en">Connect by tapping <b>Connect</b>.</li>
             </ol>
 
-            <h3>Nekobox</h3>
+            <h3 data-lang="ru">Nekobox</h3>
+            <h3 data-lang="en">Nekobox</h3>
             <ol>
-                <li>Установите <a href="https://github.com/MatsuriDayo/Nekobox">Nekobox</a>.</li>
-                <li>Добавьте профиль с VLESS-ссылкой.</li>
-                <li>Подключитесь и проверьте IP.</li>
+                <li data-lang="ru">Установите <a href="https://github.com/MatsuriDayo/Nekobox">Nekobox</a>.</li>
+                <li data-lang="en">Install <a href="https://github.com/MatsuriDayo/Nekobox">Nekobox</a>.</li>
+                <li data-lang="ru">Добавьте профиль с VLESS-ссылкой.</li>
+                <li data-lang="en">Add a profile with the VLESS link.</li>
+                <li data-lang="ru">Подключитесь и проверьте IP.</li>
+                <li data-lang="en">Connect and check the IP.</li>
             </ol>
 
-            <h3>SagerNet</h3>
+            <h3 data-lang="ru">SagerNet</h3>
+            <h3 data-lang="en">SagerNet</h3>
             <ol>
-                <li>Установите <a href="https://github.com/SagerNet/SagerNet">SagerNet</a>.</li>
-                <li>Импортируйте VLESS-ссылку в разделе <b>Profiles</b>.</li>
-                <li>Подключитесь и проверьте соединение.</li>
+                <li data-lang="ru">Установите <a href="https://github.com/SagerNet/SagerNet">SagerNet</a>.</li>
+                <li data-lang="en">Install <a href="https://github.com/SagerNet/SagerNet">SagerNet</a>.</li>
+                <li data-lang="ru">Импортируйте VLESS-ссылку в разделе <b>Profiles</b>.</li>
+                <li data-lang="en">Import the VLESS link in the <b>Profiles</b> section.</li>
+                <li data-lang="ru">Подключитесь и проверьте соединение.</li>
+                <li data-lang="en">Connect and verify the connection.</li>
             </ol>
         </div>
 
         <div class="section">
-            <h2>Часть 3: Дополнительные советы</h2>
+            <h2 data-lang="ru">Часть 3: Дополнительные советы</h2>
+            <h2 data-lang="en">Part 3: Additional Tips</h2>
             <ul>
-                <li><b>Проверка конфигурации:</b> Убедитесь, что VLESS-ссылка актуальна.</li>
-                <li><b>Маршрутизация:</b> Настройте прокси для отдельных приложений.</li>
-                <li><b>Обновления:</b> Регулярно обновляйте приложения.</li>
-                <li><b>Безопасность:</b> Используйте только проверенные источники.</li>
+                <li data-lang="ru"><b>Проверка конфигурации:</b> Убедитесь, что VLESS-ссылка актуальна.</li>
+                <li data-lang="en"><b>Configuration Check:</b> Ensure the VLESS link is up-to-date.</li>
+                <li data-lang="ru"><b>Маршрутизация:</b> Настройте прокси для отдельных приложений.</li>
+                <li data-lang="en"><b>Routing:</b> Configure proxy for specific apps.</li>
+                <li data-lang="ru"><b>Обновления:</b> Регулярно обновляйте приложения.</li>
+                <li data-lang="en"><b>Updates:</b> Regularly update the apps.</li>
+                <li data-lang="ru"><b>Безопасность:</b> Используйте только проверенные источники.</li>
+                <li data-lang="en"><b>Security:</b> Use only trusted sources.</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>Часть 4: Проверка и тестирование</h2>
+            <h2 data-lang="ru">Часть 4: Проверка и тестирование</h2>
+            <h2 data-lang="en">Part 4: Verification and Testing</h2>
             <ol>
-                <li>Проверьте IP на <a href="https://iplocation.net">iplocation.net</a>.</li>
-                <li>Попробуйте открыть заблокированный сайт.</li>
-                <li>Свяжитесь с провайдером при нестабильном соединении.</li>
+                <li data-lang="ru">Проверьте IP на <a href="https://iplocation.net">iplocation.net</a>.</li>
+                <li data-lang="en">Check your IP on <a href="https://iplocation.net">iplocation.net</a>.</li>
+                <li data-lang="ru">Попробуйте открыть заблокированный сайт.</li>
+                <li data-lang="en">Try accessing a blocked website.</li>
+                <li data-lang="ru">Свяжитесь с провайдером при нестабильном соединении.</li>
+                <li data-lang="en">Contact your provider if the connection is unstable.</li>
             </ol>
         </div>
 
         <div class="footer">
-            <p>Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>
-            С уважением, команда Yumeka Tunnel</p>
+            <p data-lang="ru">Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>С уважением, команда Yumeka Tunnel</p>
+            <p data-lang="en">If you have any questions, contact <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> or through the bot using the "📞 SUPPORT" button.<br>Best regards, Yumeka Tunnel Team</p>
         </div>
     </div>
+
+    <script>
+        // Show language selection modal on page load
+        window.onload = function() {
+            document.getElementById('languageModal').style.display = 'flex';
+        };
+
+        function setLanguage(lang) {
+            // Hide all elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Show elements for selected language
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.style.display = 'block';
+            });
+            // Update document language
+            document.documentElement.lang = lang;
+            // Hide modal
+            document.getElementById('languageModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
