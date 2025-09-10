@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по пополнению баланса YUMEKA</title>
+    <title data-lang="ru">Инструкция по пополнению баланса YUMEKA</title>
+    <title data-lang="en">Guide to Topping Up Your YUMEKA Balance</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -68,58 +69,161 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .modal-content button {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        .modal-content button:hover {
+            background-color: #e8eaed;
+        }
+        [data-lang="en"] {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            .modal-content {
+                width: 80%;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Инструкция по пополнению баланса YUMEKA</h1>
-    <div class="device-selection">
-        <p>Выберите устройство:</p>
-        <button onclick="showSection('pc')">ПК</button>
-        <button onclick="showSection('phone')">Телефон</button>
+    <div class="modal" id="languageModal">
+        <div class="modal-content">
+            <h2 data-lang="ru">Выберите язык</h2>
+            <h2 data-lang="en">Select Language</h2>
+            <button onclick="setLanguage('ru')">Русский</button>
+            <button onclick="setLanguage('en')">English</button>
+        </div>
     </div>
 
-    <div id="pc" class="section">
-        <h2>🖥 С ПК</h2>
-        <ol>
-            <li>Откройте чат с ботом и включите клавиатуру, чтобы появились доступные кнопки.<br>
-                <img src="pc-part/pc-part1.png" alt="Шаг 1: Открытие чата с ботом на ПК">
-            </li>
-            <li>Нажмите кнопку «БАЛАНС» — откроется меню пополнения.<br>
-                <img src="pc-part/pc-part2.png" alt="Шаг 2: Меню пополнения на ПК">
-            </li>
-            <li>Из списка выберите нужную сумму. Например, можно выбрать 199 руб.<br>
-                <img src="pc-part/pc-part3.png" alt="Шаг 3: Выбор суммы на ПК">
-            </li>
-            <li>После этого бот предложит несколько вариантов оплаты. Укажите удобный способ, например ЮKassa.<br>
-                <img src="pc-part/pc-part4.png" alt="Шаг 4: Выбор способа оплаты на ПК">
-            </li>
-            <li>Бот автоматически сформирует персональную ссылку для платежа. Перейдите по ней и завершите оплату.<br>
-                <img src="pc-part/pc-part5.png" alt="Шаг 5: Ссылка для платежа на ПК">
-            </li>
-            <li>После успешного перевода средств ваш баланс в боте YUMEKA будет обновлён.<br>
-                <img src="pc-part/pc-part6.png" alt="Шаг 6: Обновление баланса на ПК">
-            </li>
-        </ol>
-    </div>
+    <div class="container">
+        <h1 data-lang="ru">Инструкция по пополнению баланса YUMEKA</h1>
+        <h1 data-lang="en">Guide to Topping Up Your YUMEKA Balance</h1>
 
-    <div id="phone" class="section">
-        <h2>📱 С телефона</h2>
-        <ol>
-            <li>Запустите чат с ботом YUMEKA на своём смартфоне.</li>
-            <li>Нажмите кнопку «БАЛАНС» в клавиатуре бота, чтобы открыть меню пополнения.</li>
-            <li>Выберите подходящую сумму пополнения, например 199 руб.</li>
-            <li>Далее бот предложит доступные способы оплаты. Нажмите на удобный для вас вариант, например ЮKassa.</li>
-            <li>После этого бот отправит ссылку для проведения платежа. Перейдите по ней и произведите оплату.</li>
-            <li>Когда операция будет подтверждена, баланс в боте YUMEKA обновится автоматически.</li>
-        </ol>
-    </div>
+        <div class="device-selection">
+            <p data-lang="ru">Выберите устройство:</p>
+            <p data-lang="en">Select Device:</p>
+            <button onclick="showSection('pc')" data-lang="ru">ПК</button>
+            <button onclick="showSection('pc')" data-lang="en">PC</button>
+            <button onclick="showSection('phone')" data-lang="ru">Телефон</button>
+            <button onclick="showSection('phone')" data-lang="en">Phone</button>
+        </div>
 
-    <div class="footer">
-        <p>Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>
-        С уважением, команда Yumeka Tunnel</p>
+        <div id="pc" class="section">
+            <h2 data-lang="ru">🖥 С ПК</h2>
+            <h2 data-lang="en">🖥 On PC</h2>
+            <ol>
+                <li data-lang="ru">Откройте чат с ботом и включите клавиатуру, чтобы появились доступные кнопки.<br>
+                    <img src="pc-part/pc-part1.png" alt="Шаг 1: Открытие чата с ботом на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part1.png" alt="Step 1: Opening the chat with the bot on PC" data-lang="en">
+                </li>
+                <li data-lang="ru">Нажмите кнопку «БАЛАНС» — откроется меню пополнения.<br>
+                    <img src="pc-part/pc-part2.png" alt="Шаг 2: Меню пополнения на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part2.png" alt="Step 2: Balance top-up menu on PC" data-lang="en">
+                </li>
+                <li data-lang="ru">Из списка выберите нужную сумму. Например, можно выбрать 199 руб.<br>
+                    <img src="pc-part/pc-part3.png" alt="Шаг 3: Выбор суммы на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part3.png" alt="Step 3: Selecting the amount on PC" data-lang="en">
+                </li>
+                <li data-lang="ru">После этого бот предложит несколько вариантов оплаты. Укажите удобный способ, например ЮKassa.<br>
+                    <img src="pc-part/pc-part4.png" alt="Шаг 4: Выбор способа оплаты на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part4.png" alt="Step 4: Choosing the payment method on PC" data-lang="en">
+                </li>
+                <li data-lang="ru">Бот автоматически сформирует персональную ссылку для платежа. Перейдите по ней и завершите оплату.<br>
+                    <img src="pc-part/pc-part5.png" alt="Шаг 5: Ссылка для платежа на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part5.png" alt="Step 5: Payment link on PC" data-lang="en">
+                </li>
+                <li data-lang="ru">После успешного перевода средств ваш баланс в боте YUMEKA будет обновлён.<br>
+                    <img src="pc-part/pc-part6.png" alt="Шаг 6: Обновление баланса на ПК" data-lang="ru">
+                    <img src="pc-part/pc-part6.png" alt="Step 6: Balance updated on PC" data-lang="en">
+                </li>
+            </ol>
+        </div>
+
+        <div id="phone" class="section">
+            <h2 data-lang="ru">📱 С телефона</h2>
+            <h2 data-lang="en">📱 On Phone</h2>
+            <ol>
+                <li data-lang="ru">Запустите чат с ботом YUMEKA на своём смартфоне.</li>
+                <li data-lang="en">Open the chat with the YUMEKA bot on your smartphone.</li>
+                <li data-lang="ru">Нажмите кнопку «БАЛАНС» в клавиатуре бота, чтобы открыть меню пополнения.</li>
+                <li data-lang="en">Tap the "BALANCE" button on the bot's keyboard to open the top-up menu.</li>
+                <li data-lang="ru">Выберите подходящую сумму пополнения, например 199 руб.</li>
+                <li data-lang="en">Select a suitable top-up amount, e.g., 199 RUB.</li>
+                <li data-lang="ru">Далее бот предложит доступные способы оплаты. Нажмите на удобный для вас вариант, например ЮKassa.</li>
+                <li data-lang="en">The bot will then offer available payment methods. Tap the option that suits you, e.g., YooKassa.</li>
+                <li data-lang="ru">После этого бот отправит ссылку для проведения платежа. Перейдите по ней и произведите оплату.</li>
+                <li data-lang="en">The bot will send a payment link. Follow it and complete the payment.</li>
+                <li data-lang="ru">Когда операция будет подтверждена, баланс в боте YUMEKA обновится автоматически.</li>
+                <li data-lang="en">Once the transaction is confirmed, your balance in the YUMEKA bot will update automatically.</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p data-lang="ru">Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>С уважением, команда Yumeka Tunnel</p>
+            <p data-lang="en">If you have any questions, contact <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> or through the bot using the "📞 SUPPORT" button.<br>Best regards, Yumeka Tunnel Team</p>
+        </div>
     </div>
 
     <script>
+        // Show language selection modal on page load
+        window.onload = function() {
+            document.getElementById('languageModal').style.display = 'flex';
+        };
+
+        function setLanguage(lang) {
+            // Hide all elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Show elements for selected language
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.style.display = 'block';
+            });
+            // Update document language
+            document.documentElement.lang = lang;
+            // Hide modal
+            document.getElementById('languageModal').style.display = 'none';
+        }
+
         function showSection(device) {
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
