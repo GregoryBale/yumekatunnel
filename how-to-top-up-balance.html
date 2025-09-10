@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция по пополнению баланса YUMEKA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: black;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+        a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+        .device-selection {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .device-selection button {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        .device-selection button:hover {
+            background-color: #e8eaed;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Инструкция по пополнению баланса YUMEKA</h1>
+    <div class="device-selection">
+        <p>Выберите устройство:</p>
+        <button onclick="showSection('pc')">ПК</button>
+        <button onclick="showSection('phone')">Телефон</button>
+    </div>
+
+    <div id="pc" class="section">
+        <h2>🖥 С ПК</h2>
+        <ol>
+            <li>Откройте чат с ботом и включите клавиатуру, чтобы появились доступные кнопки.<br>
+                <img src="pc-part/pc-part1.png" alt="Шаг 1: Открытие чата с ботом на ПК">
+            </li>
+            <li>Нажмите кнопку «БАЛАНС» — откроется меню пополнения.<br>
+                <img src="pc-part/pc-part2.png" alt="Шаг 2: Меню пополнения на ПК">
+            </li>
+            <li>Из списка выберите нужную сумму. Например, можно выбрать 199 руб.<br>
+                <img src="pc-part/pc-part3.png" alt="Шаг 3: Выбор суммы на ПК">
+            </li>
+            <li>После этого бот предложит несколько вариантов оплаты. Укажите удобный способ, например ЮKassa.<br>
+                <img src="pc-part/pc-part4.png" alt="Шаг 4: Выбор способа оплаты на ПК">
+            </li>
+            <li>Бот автоматически сформирует персональную ссылку для платежа. Перейдите по ней и завершите оплату.<br>
+                <img src="pc-part/pc-part5.png" alt="Шаг 5: Ссылка для платежа на ПК">
+            </li>
+            <li>После успешного перевода средств ваш баланс в боте YUMEKA будет обновлён.<br>
+                <img src="pc-part/pc-part6.png" alt="Шаг 6: Обновление баланса на ПК">
+            </li>
+        </ol>
+    </div>
+
+    <div id="phone" class="section">
+        <h2>📱 С телефона</h2>
+        <ol>
+            <li>Запустите чат с ботом YUMEKA на своём смартфоне.</li>
+            <li>Нажмите кнопку «БАЛАНС» в клавиатуре бота, чтобы открыть меню пополнения.</li>
+            <li>Выберите подходящую сумму пополнения, например 199 руб.</li>
+            <li>Далее бот предложит доступные способы оплаты. Нажмите на удобный для вас вариант, например ЮKassa.</li>
+            <li>После этого бот отправит ссылку для проведения платежа. Перейдите по ней и произведите оплату.</li>
+            <li>Когда операция будет подтверждена, баланс в боте YUMEKA обновится автоматически.</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <p>Если у вас возникнут вопросы, обратитесь к <a href="https://t.me/yumekatunnel_support">@yumekatunnel_support</a> или через бота по кнопке "📞 ПОДДЕРЖКА".<br>
+        С уважением, команда Yumeka Tunnel</p>
+    </div>
+
+    <script>
+        function showSection(device) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(device).classList.add('active');
+        }
+    </script>
+</body>
+</html>
